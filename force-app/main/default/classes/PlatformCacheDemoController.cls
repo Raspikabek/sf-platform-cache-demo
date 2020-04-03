@@ -1,0 +1,46 @@
+public with sharing class PlatformCacheDemoController {
+    @AuraEnabled
+    public static void executeSampleCode(Boolean usePlatformCache) {
+        if (usePlatformCache) {
+            List<AccountExtraInfo> info = new List<AccountExtraInfo>();
+            CacheManager cache = new CacheManager();
+            String cacheKey = 'local.SamplePartition.contactsInAccounts';
+            Object valueFromCache = cache.get(cacheKey);
+            if (valueFromCache == null) {
+                info = doSomethingCrazy();
+                cache.put(cacheKey, info, 10000);
+            } else {
+                info = (List<AccountExtraInfo>) valueFromCache;
+            }
+        } else {
+            doSomethingCrazy();
+        }
+    }
+
+    private static List<AccountExtraInfo> doSomethingCrazy() {
+        List<Account> accounts = new List<Account>();
+        accounts = [
+            SELECT Id, Name, Description, (SELECT Id, Name, Email FROM Contacts)
+            FROM Account
+        ];
+        List<AccountExtraInfo> accountsInfo = new List<AccountExtraInfo>();
+        for (Account a : accounts) {
+            Integer i = 0;
+            for (Contact c : a.Contacts) {
+                i = i + 1;
+            }
+            accountsInfo.add(new AccountExtraInfo(a.Id, i));
+        }
+        return accountsInfo;
+    }
+
+    public class AccountExtraInfo {
+        public Id accountId;
+        public Integer numberOfContacts;
+
+        public AccountExtraInfo(Id id, Integer value) {
+            accountId = id;
+            numberOfContacts = value;
+        }
+    }
+}

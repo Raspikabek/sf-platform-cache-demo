@@ -1,5 +1,5 @@
 {
-  "orgName": "SF Platform Cache Demo",
-  "edition": "Developer",
-  "features": []
+    "orgName": "SF Platform Cache Demo",
+    "edition": "Developer",
+    "features": ["PlatformCache"]
 }
