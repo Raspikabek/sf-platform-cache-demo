@@ -25,12 +25,6 @@ This process performs the following actions:
 npm run sfdx:setup:project
 ```
 
-After the process is completed you can run
-
-```
-npm run sfdx:open:demoapp
-```
-
 ### New brand Scratch Org
 
 Create a new Scratch Org:
