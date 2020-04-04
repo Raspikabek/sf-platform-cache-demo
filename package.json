@@ -13,14 +13,14 @@
         "test:unit:coverage": "sfdx-lwc-jest --coverage",
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "sfdx:setup:project" : "npm run sfdx:create:scratchorg && npm run sfdx:source:push && npm run sfdx:permset:assign && npm run sfdx:create:data",
-        "sfdx:create:scratchorg" : "sfdx force:org:create -a sf-platform-cache-demo -s -f config/project-scratch-def.json -d 3",
-        "sfdx:source:push" : "sfdx force:source:push",
+        "sfdx:setup:project": "npm run sfdx:create:scratchorg && npm run sfdx:source:push && npm run sfdx:permset:assign && npm run sfdx:create:data && npm run sfdx:open:demoapp",
+        "sfdx:create:scratchorg": "sfdx force:org:create -a sf-platform-cache-demo -s -f config/project-scratch-def.json -d 3",
+        "sfdx:source:push": "sfdx force:source:push",
         "sfdx:permset:assign": "sfdx force:user:permset:assign -n sf_platform_cache_demo",
         "sfdx:create:data": "npm run sfdx:create:accounts && npm run sfdx:create:contacts",
         "sfdx:create:accounts": "sfdx force:data:bulk:upsert -s Account -f ./assets/mock_accounts.csv -i External_Id__c -w 5",
         "sfdx:create:contacts": "sfdx force:data:bulk:upsert -s Contact -f ./assets/mock_contacts.csv -i Id -w 5",
-        "sfdx:open:demoapp" : "sfdx force:org:open -p /lightning/n/Platform_Cache_Demo"
+        "sfdx:open:demoapp": "sfdx force:org:open -p /lightning/n/Platform_Cache_Demo"
     },
     "devDependencies": {
         "@prettier/plugin-xml": "^0.7.0",
