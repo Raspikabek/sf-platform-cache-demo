@@ -66,4 +66,14 @@ npm run sfdx:create:data
 ## How the App Works?
 
 -   Make sure you have completed all previous steps (new scratch org + permset + mock data upload)
--   Open your Scratch Org & navigate to Platform Cache Demo application
+-   Open your Scratch Org & navigate to Platform Cache Demo application & play around with the buttons
+
+```
+sfdx force:org:open -p /lightning/n/Platform_Cache_Demo
+```
+
+or
+
+```
+npm run sfdx:open:demoapp
+```

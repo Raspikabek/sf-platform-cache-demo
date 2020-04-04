@@ -16,7 +16,8 @@
         "sfdx:permset:assign": "sfdx force:user:permset:assign -n sf_platform_cache_demo",
         "sfdx:create:data": "npm run sfdx:create:accounts && npm run sfdx:create:contacts",
         "sfdx:create:accounts": "sfdx force:data:bulk:upsert -s Account -f ./assets/mock_accounts.csv -i External_Id__c",
-        "sfdx:create:contacts": "sfdx force:data:bulk:upsert -s Contact -f ./assets/mock_contacts.csv -i Id"
+        "sfdx:create:contacts": "sfdx force:data:bulk:upsert -s Contact -f ./assets/mock_contacts.csv -i Id",
+        "sfdx:open:demoapp" : "sfdx force:org:open -p /lightning/n/Platform_Cache_Demo"
     },
     "devDependencies": {
         "@prettier/plugin-xml": "^0.7.0",
