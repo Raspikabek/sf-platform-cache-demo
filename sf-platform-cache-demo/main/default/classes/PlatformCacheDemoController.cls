@@ -1,6 +1,8 @@
 public with sharing class PlatformCacheDemoController {
     @AuraEnabled
-    public static void executeSampleCode(Boolean usePlatformCache) {
+    public static Long executeSampleCode(Boolean usePlatformCache) {
+        long startTime = System.currentTimeMillis();
+
         if (usePlatformCache) {
             List<AccountExtraInfo> info = new List<AccountExtraInfo>();
             CacheManager cache = new CacheManager();
@@ -15,6 +17,8 @@ public with sharing class PlatformCacheDemoController {
         } else {
             doSomethingCrazy();
         }
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        return elapsedTime;
     }
 
     private static List<AccountExtraInfo> doSomethingCrazy() {

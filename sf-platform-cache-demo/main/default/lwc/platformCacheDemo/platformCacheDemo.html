@@ -1,0 +1,38 @@
+<template>
+    <lightning-card icon-name="standard:trailhead" title="Platform Cache Demo">
+        <div class="slds-text-body_regular">
+            <p>
+                Try the Apex Controller method with & without Platform Cache.
+                Mind the first time ever you call 'With Platform Cache', the
+                cache will fail + with create the data. Next times will be
+                faster.
+            </p>
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <lightning-button
+                        variant="brand"
+                        name="cache"
+                        label="Using Platform Cache"
+                        title="Using Platform Cache"
+                        onclick={handleClickButton}
+                        class="slds-m-left_x-small"
+                    ></lightning-button>
+                    Elapsed Time: {elapsedTimeWithCache}ms
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <p>
+                        <lightning-button
+                            variant="brand"
+                            name="no-cache"
+                            label="Not Using Platform Cache"
+                            title="Not Using Platform Cache"
+                            onclick={handleClickButton}
+                            class="slds-m-left_x-small"
+                        ></lightning-button>
+                        Elapsed Time: {elapsedTimeWithoutCache}ms
+                    </p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

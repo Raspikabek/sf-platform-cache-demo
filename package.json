@@ -1,25 +1,29 @@
 {
-  "name": "salesforce-app",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Salesforce App",
-  "scripts": {
-    "lint": "npm run lint:lwc",
-    "lint:lwc": "eslint force-app/main/default/lwc",
-    "test": "npm run test:unit",
-    "test:unit": "sfdx-lwc-jest",
-    "test:unit:watch": "sfdx-lwc-jest --watch",
-    "test:unit:debug": "sfdx-lwc-jest --debug",
-    "test:unit:coverage": "sfdx-lwc-jest --coverage",
-    "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-    "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\""
-  },
-  "devDependencies": {
-    "@prettier/plugin-xml": "^0.7.0",
-    "@salesforce/eslint-config-lwc": "^0.4.0",
-    "@salesforce/sfdx-lwc-jest": "^0.7.0",
-    "eslint": "^5.16.0",
-    "prettier": "^1.19.1",
-    "prettier-plugin-apex": "^1.0.0"
-  }
+    "name": "sf-platform-cache-demo",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Salesforce Platform Cache Demo App",
+    "scripts": {
+        "lint": "npm run lint:lwc",
+        "lint:lwc": "eslint force-app/main/default/lwc",
+        "test": "npm run test:unit",
+        "test:unit": "sfdx-lwc-jest",
+        "test:unit:watch": "sfdx-lwc-jest --watch",
+        "test:unit:debug": "sfdx-lwc-jest --debug",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage",
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "sfdx:permset:assign": "sfdx force:user:permset:assign -n sf_platform_cache_demo",
+        "sfdx:create:data": "npm run sfdx:create:accounts && npm run sfdx:create:contacts",
+        "sfdx:create:accounts": "sfdx force:data:bulk:upsert -s Account -f ./assets/mock_accounts.csv -i External_Id__c",
+        "sfdx:create:contacts": "sfdx force:data:bulk:upsert -s Contact -f ./assets/mock_contacts.csv -i Id"
+    },
+    "devDependencies": {
+        "@prettier/plugin-xml": "^0.7.0",
+        "@salesforce/eslint-config-lwc": "^0.4.0",
+        "@salesforce/sfdx-lwc-jest": "^0.7.0",
+        "eslint": "^5.16.0",
+        "prettier": "^1.19.1",
+        "prettier-plugin-apex": "^1.0.0"
+    }
 }
