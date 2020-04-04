@@ -12,6 +12,25 @@ We recommend to create a new Scratch Org, set it as default + create the mock da
 
 ## How to Install:
 
+### Fully automated process
+
+This process performs the following actions:
+
+1. Creates a new Scratch Org and sets the new org as default
+2. Push the code to the new Scratch Org
+3. Sets the necessary permission set automatically
+4. Uploads the mock data necessary for testing
+
+```
+npm run sfdx:setup:project
+```
+
+After the process is completed you can run
+
+```
+npm run sfdx:open:demoapp
+```
+
 ### New brand Scratch Org
 
 Create a new Scratch Org:
