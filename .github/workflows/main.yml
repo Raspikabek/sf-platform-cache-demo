@@ -18,13 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: 'Lint tools'
+    - name: 'Setup node'
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-        run: npm install
-          npm run test
-          npm prettier:verify
+    - name: 'Lint tools'
+      run: npm install
+        npm run test
+        npm prettier:verify
     # Install Salesforce CLI
     - name: Install Salesforce CLI
       run: |
