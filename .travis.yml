@@ -19,11 +19,13 @@ install:
 - npm i
 jobs:
   include:
-  - stage: Eslint & Prettier
+  - stage: lints
+    name: ESLint & Prettier
     script:
     - npm run lint
     - npm run prettier:verify
   - stage: build
+    name: sfdx deploy
     script:
     - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
       --username $USERNAME --setdefaultdevhubusername -a HubOrg
