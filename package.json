@@ -5,7 +5,7 @@
     "description": "Salesforce Platform Cache Demo App",
     "scripts": {
         "lint": "npm run lint:lwc",
-        "lint:lwc": "eslint force-app/main/default/lwc",
+        "lint:lwc": "eslint sf-platform-cache-demo/main/default/lwc",
         "test": "npm run test:unit",
         "test:unit": "sfdx-lwc-jest",
         "test:unit:watch": "sfdx-lwc-jest --watch",
