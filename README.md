@@ -1,5 +1,6 @@
 # Platform Cache Demo
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/df70c710677d4ab8b77ce8fda21e68e3)](https://app.codacy.com/manual/Raspikabek/sf-platform-cache-demo?utm_source=github.com&utm_medium=referral&utm_content=Raspikabek/sf-platform-cache-demo&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/Raspikabek/sf-platform-cache-demo.svg?branch=master)](https://travis-ci.com/Raspikabek/sf-platform-cache-demo)
 
 This sample demo shows you how Platform Cache works & increasing the performance of your code in some crucial scenarios.
