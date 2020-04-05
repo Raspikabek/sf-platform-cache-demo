@@ -13,6 +13,7 @@
         "test:unit:coverage": "sfdx-lwc-jest --coverage",
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "build": "npm run sfdx:setup:project",
         "sfdx:setup:project": "npm run sfdx:create:scratchorg && npm run sfdx:source:push && npm run sfdx:permset:assign && npm run sfdx:create:data && npm run sfdx:open:demoapp",
         "sfdx:create:scratchorg": "sfdx force:org:create -a sf-platform-cache-demo -s -f config/project-scratch-def.json -d 3",
         "sfdx:source:push": "sfdx force:source:push",
