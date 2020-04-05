@@ -16,13 +16,25 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: salestrip/sfdx-cli
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: 'Lint tools'
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm install
+    - run: npm run test
+    - run: npm prettier:verify
+    # Install Salesforce CLI
+    - name: Install Salesforce CLI
+      run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+          mkdir sfdx-cli
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+          ./sfdx-cli/install
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: 'Checkout source code'
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
+    
+    - name: 'Check sfdx version'
       run: sfdx version
