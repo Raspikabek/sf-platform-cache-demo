@@ -1,5 +1,7 @@
 # Platform Cache Demo
 
+[![Build Status](https://travis-ci.com/Raspikabek/sf-platform-cache-demo.svg?branch=master)](https://travis-ci.com/Raspikabek/sf-platform-cache-demo)
+
 This sample demo shows you how Platform Cache works & increasing the performance of your code in some crucial scenarios.
 
 The code contains an Apex Class (`PlatformCacheDemoController`) that contains a method with a SOQL of all Accounts + Child contacts + goes through every contact to see how many contacts has each account.
