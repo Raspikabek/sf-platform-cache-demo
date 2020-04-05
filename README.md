@@ -1,6 +1,7 @@
 # Platform Cache Demo
 
 [![Build Status](https://travis-ci.com/Raspikabek/sf-platform-cache-demo.svg?branch=master)](https://travis-ci.com/Raspikabek/sf-platform-cache-demo)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9b7da2bd62784f1bb98899d18346e960)](https://www.codacy.com/manual/Raspikabek/sf-platform-cache-demo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Raspikabek/sf-platform-cache-demo&amp;utm_campaign=Badge_Grade)
 
 This sample demo shows you how Platform Cache works & increasing the performance of your code in some crucial scenarios.
 
@@ -12,18 +13,18 @@ Remember that with Platform Cache we can store any structure of data we need. Be
 
 We recommend to create a new Scratch Org, set it as default + create the mock data that exists in this repository (1k Accounts + 2k Contacts);
 
-## How to Install:
+## How to Install
 
 ### Fully automated process
 
 This process performs the following actions:
 
-1. Creates a new Scratch Org and sets the new org as default
-2. Push the code to the new Scratch Org
-3. Sets the necessary permission set automatically
-4. Uploads the mock data necessary for testing
+1.  Creates a new Scratch Org and sets the new org as default
+2.  Push the code to the new Scratch Org
+3.  Sets the necessary permission set automatically
+4.  Uploads the mock data necessary for testing
 
-```
+```bash
 npm run sfdx:setup:project
 ```
 
@@ -31,13 +32,13 @@ npm run sfdx:setup:project
 
 Create a new Scratch Org:
 
-```
+```bash
 sfdx force:org:create -v YOUR_DEVHUB_ALIAS -a sf-platform-cache-demo -s -f config/project-scratch-def.json
 ```
 
 Push the package to the new Scratch Org:
 
-```
+```bash
 sfdx force:org:push
 ```
 
@@ -45,7 +46,7 @@ sfdx force:org:push
 
 Deploy the code into your target org with Source commands:
 
-```
+```bash
 sfdx force:source:deploy -p sf-platform-cache-demo
 ```
 
@@ -53,13 +54,13 @@ sfdx force:source:deploy -p sf-platform-cache-demo
 
 Assign to yourself the Permission Set: `sf-platform-cache-demo`
 
-```
+```bash
 sfdx force:user:permset:assign -n sf_platform_cache_demo
 ```
 
 or
 
-```
+```bash
 npm run sfdx:permset:assign
 ```
 
@@ -67,28 +68,28 @@ npm run sfdx:permset:assign
 
 _(this commands creates 1k accounts + 2 contacts per account in bulk in your default org)_
 
-```
+```bash
 sfdx force:data:bulk:upsert -s Account -f ./assets/mock_accounts.csv -i External_Id__c
 sfdx force:data:bulk:upsert -s Contact -f ./assets/mock_contacts.csv -i Id
 ```
 
 or
 
-```
+```bash
 npm run sfdx:create:data
 ```
 
-## How the App Works?
+## How the App Works
 
 -   Make sure you have completed all previous steps (new scratch org + permset + mock data upload)
 -   Open your Scratch Org & navigate to Platform Cache Demo application & play around with the buttons
 
-```
+```bash
 sfdx force:org:open -p /lightning/n/Platform_Cache_Demo
 ```
 
 or
 
-```
+```bash
 npm run sfdx:open:demoapp
 ```
