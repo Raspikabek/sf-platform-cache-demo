@@ -22,9 +22,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
-    - run: npm run test
-    - run: npm prettier:verify
+        run: npm install
+          npm run test
+          npm prettier:verify
     # Install Salesforce CLI
     - name: Install Salesforce CLI
       run: |
