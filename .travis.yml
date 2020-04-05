@@ -7,7 +7,7 @@ branches:
   - master
   - "/^feature.*$/"
 before_install:
-- openssl aes-256-cbc -K $encrypted_6bb660dadc33_key -iv $encrypted_6bb660dadc33_iv
+- openssl aes-256-cbc -K $encrypted_79a2f6093848_key -iv $encrypted_79a2f6093848_iv
   -in assets/server.key.enc -out assets/server.key -d
 - export SFDX_AUTOUPDATE_DISABLE=false
 - export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
@@ -15,8 +15,8 @@ before_install:
 - export SFDX_DISABLE_APP_HUB=true
 - export SFDX_LOG_LEVEL=DEBUG
 install:
-  - npm i -g sfdx-cli
-  - npm i
+- npm i -g sfdx-cli
+- npm i
 jobs:
   include:
   - stage: Eslint & Prettier
@@ -25,5 +25,6 @@ jobs:
     - npm run prettier:verify
   - stage: build
     script:
-    - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a HubOrg
+    - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
+      --username $USERNAME --setdefaultdevhubusername -a HubOrg
     - npm run build
