@@ -3,7 +3,7 @@ public with sharing class CacheManager {
     private Boolean cacheEnabled;
 
     public CacheManager() {
-        cacheEnabled = true;
+        cacheEnabled = true; // Recommended to set this in a CustomSetting switch to enable/disable as Admin User
     }
 
     public Boolean toogleEnabled() {

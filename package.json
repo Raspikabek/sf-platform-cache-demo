@@ -16,6 +16,7 @@
         "build": "npm run sfdx:setup:project",
         "sfdx:setup:project": "npm run sfdx:create:scratchorg && npm run sfdx:source:push && npm run sfdx:permset:assign && npm run sfdx:create:data && npm run sfdx:open:demoapp",
         "sfdx:create:scratchorg": "sfdx force:org:create -a sf-platform-cache-demo -s -f config/project-scratch-def.json -d 3",
+        "sfdx:delete:scratchorg": "sfdx force:org:delete --targetusername sf-platform-cache-demo --noprompt",
         "sfdx:source:push": "sfdx force:source:push",
         "sfdx:permset:assign": "sfdx force:user:permset:assign -n sf_platform_cache_demo",
         "sfdx:create:data": "npm run sfdx:create:accounts && npm run sfdx:create:contacts",

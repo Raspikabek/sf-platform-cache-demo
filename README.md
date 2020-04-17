@@ -3,13 +3,13 @@
 [![Build Status](https://travis-ci.com/Raspikabek/sf-platform-cache-demo.svg?branch=master)](https://travis-ci.com/Raspikabek/sf-platform-cache-demo)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9b7da2bd62784f1bb98899d18346e960)](https://www.codacy.com/manual/Raspikabek/sf-platform-cache-demo?utm_source=github.com&utm_medium=referral&utm_content=Raspikabek/sf-platform-cache-demo&utm_campaign=Badge_Grade)
 
-This sample demo shows you how Platform Cache works & increasing the performance of your code in some crucial scenarios.
+This sample demo shows you how Platform Cache works & increases the performance of your code in some crucial scenarios.
 
-The code contains an Apex Class (`PlatformCacheDemoController`) that contains a method with a SOQL of all Accounts + Child contacts + goes through every contact to see how many contacts has each account.
+The code contains an Apex Class (`PlatformCacheDemoController`) which has a method with a SOQL of all Accounts + Child contacts + goes through every contact to see how many contacts has each account.
 
 Definitely this is not the best way to count how many contacts we have, however is a great example of a large operation that can be cached with Platform Cache and retrieve the data from the cache instead of process every time the same method.
 
-Remember that with Platform Cache we can store any structure of data we need. Best practices is not only to replace specific heavy SOQL but to replace heavy loads of data processing as well.
+Remember that with Platform Cache we can store any structure of data we need. Best practice is not only to replace specific heavy SOQL but to replace heavy loads of data processing as well.
 
 We recommend to create a new Scratch Org, set it as default + create the mock data that exists in this repository (1k Accounts + 2k Contacts);
 
@@ -28,7 +28,9 @@ This process performs the following actions:
 npm run sfdx:setup:project
 ```
 
-### New brand Scratch Org
+### Manual deployment process
+
+#### New brand Scratch Org
 
 Create a new Scratch Org:
 
@@ -42,7 +44,7 @@ Push the package to the new Scratch Org:
 sfdx force:org:push
 ```
 
-### Your own Sandbox or Developer Edition org
+#### Your own Sandbox or Developer Edition org
 
 Deploy the code into your target org with Source commands:
 

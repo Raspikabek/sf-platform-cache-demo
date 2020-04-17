@@ -47,4 +47,18 @@ public with sharing class PlatformCacheDemoController {
             numberOfContacts = value;
         }
     }
+
+    @AuraEnabled
+    public static Long badPracticeSample() {
+        long startTime = System.currentTimeMillis();
+        List<AccountExtraInfo> info = new List<AccountExtraInfo>();
+        info = doSomethingCrazy();
+        CacheManager cache = new CacheManager();
+        for (AccountExtraInfo a : info) {
+            String cacheKey = 'local.SamplePartition.acc' + a.accountId;
+            cache.put(cacheKey, a, 10000);
+        }
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        return elapsedTime;
+    }
 }
